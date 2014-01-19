@@ -2,12 +2,18 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
+Xcursor: DMZ
 
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Meta-k: perl:pageup
+URxvt.keysym.Meta-j: perl:pagedown
 URxvt.iso14755: False
-URxvt.perl-ext-common: default,tabbed,clipboard
+URxvt.perl-ext-common: default,tabbed,clipboard,scroll
 URxvt.font: xft:Inconsolata LGC-8
 URxvt.letterSpace: -1
+URxvt.scrollstyle: plain
+URxvt.pointerBlank: true
+URxvt.pointerBlankDelay: 5
 
 *background: #272822
 *foreground: #F8F8F2

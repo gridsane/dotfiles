@@ -44,7 +44,7 @@ config.keys.global = awful.util.table.join(
   awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
 
   -- Client manipulation
-  
+
   keydoc.group('Clients'),
   awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end, 'Swap with next client'),
   awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end, 'Swap with next client'),
@@ -84,7 +84,25 @@ config.keys.global = awful.util.table.join(
         awful.util.eval, nil,
         awful.util.getdir("cache") .. "/history_eval")
     end
-  , 'Promptbox: run a lua code')
+  , 'Promptbox: run a lua code'),
+
+  keydoc.group("Volume control"),
+  awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 9%+", false) end),
+  awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-", false) end),
+  awful.key({ }, "XF86AudioMute", function ()
+    local fd = io.popen("amixer sget Master")
+    local status = fd:read("*all")
+    fd:close()
+
+    status = string.match(status, "%[(o[^%]]*)%]")
+
+    if string.find(status, "on", 1, true) then
+      awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ 1", false)
+    else
+      awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ 0", false)
+    end
+  end)
+
 )
 
 config.keys.client = awful.util.table.join(

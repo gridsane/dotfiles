@@ -46,7 +46,7 @@ function loadrc(name, mod)
 end
 
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/theme/theme.lua")
 
 -- Errors and debug stuff
 loadrc("errors")
@@ -58,18 +58,18 @@ config = {
   browser  = "x-www-browser",
   editor   = "vim",
   layouts  = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.left,
     awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
+    awful.layout.suit.floating,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
   },
   keys = {
     global = {},
@@ -85,6 +85,7 @@ loadrc('bindings')
 loadrc('rules')
 loadrc('signals')
 loadrc('quake')
+loadrc('autostart')
 
 -- Apply keys configuration
 root.keys(config.keys.global)

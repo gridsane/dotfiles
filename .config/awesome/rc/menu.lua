@@ -10,11 +10,15 @@ local menu = {
     { "quit", awesome.quit }
   },
   debian = debian.menu.Debian_menu.Debian,
+  power = {
+    {"reboot", "sudo reboot now" },
+    {"poweroff", "sudo poweroff -h" }
+  },
 }
-
 
 config.menu = awful.menu({items = {
     {"terminal", config.terminal},
     {"awesome", menu.awesome, beautiful.awesome_icon},
     {"debian",  menu.debian},
+    {"power",  menu.power}
 }})
