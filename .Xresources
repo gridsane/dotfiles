@@ -5,8 +5,8 @@ Xft.rgba: rgb
 Xcursor: DMZ
 
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.Meta-k: perl:pageup
-URxvt.keysym.Meta-j: perl:pagedown
+URxvt.keysym.M-k: perl:pageup
+URxvt.keysym.M-j: perl:pagedown
 URxvt.iso14755: False
 URxvt.perl-ext-common: default,tabbed,clipboard,scroll
 URxvt.font: xft:Inconsolata LGC-8
