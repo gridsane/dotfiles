@@ -1,1 +1,1 @@
-awful.util.spawn_with_shell("run_once.sh 'dropbox start'")
+xrun('dropbox', 'dropbox start')

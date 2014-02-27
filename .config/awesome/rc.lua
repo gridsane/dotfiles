@@ -85,6 +85,7 @@ loadrc('bindings')
 loadrc('rules')
 loadrc('signals')
 loadrc('quake')
+loadrc('xrun')
 loadrc('autostart')
 
 -- Apply keys configuration
