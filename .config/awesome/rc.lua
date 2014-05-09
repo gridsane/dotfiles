@@ -46,7 +46,7 @@ function loadrc(name, mod)
 end
 
 -- Themes define colours, icons, and wallpapers
-beautiful.init(awful.util.getdir("config") .. "/theme/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/theme/solarized_dark.lua")
 
 -- Errors and debug stuff
 loadrc("errors")
