@@ -7,11 +7,20 @@ root.buttons(awful.util.table.join(
   awful.button({ }, 5, awful.tag.viewprev)
 ))
 
+-- External programs
+config.keys.global = awful.util.table.join(
+  config.keys.global,
+  
+  keydoc.group('External'),
+
+  awful.key({ modkey }, 's', function () awful.util.spawn_with_shell("slock")  end, 'Lock screen (slock)')
+)
+
 -- Global key bindings
 config.keys.global = awful.util.table.join(
   config.keys.global,
 
-  awful.key({ modkey }, "F1",   keydoc.display),
+  awful.key({ modkey }, "F1",  keydoc.display),
 
   keydoc.group('Tags'),
 
