@@ -1,9 +1,20 @@
+require('./rc/battery')
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = config.menu })
--- }}}
-
 -- {{{ Wibox
+
+-- Battery
+require("battery")
+
+batterywidget = widget({type = "textbox", name = "batterywidget" })
+
+bat_clo = battery.batclosure("BAT0")
+batterywidget.text = bat_clo()
+battimer = timer({ timeout = 30 })
+battimer:add_signal("timeout", function() batterywidget.text = bat_clo() end)
+battimer:start()
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
@@ -86,7 +97,8 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        s == 1 and mysystray or nil,
+        batterywidget,
+        mysystray,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
